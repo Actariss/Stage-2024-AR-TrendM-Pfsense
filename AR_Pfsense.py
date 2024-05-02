@@ -133,7 +133,7 @@ def main():
             "interface": "wan",
             "ipprotocol": "inet",
             "protocol": "any",
-            "src": sys.argv[1],
+            "src": "192.168.3.102",
             "srcport": "any",
             "dst": "any",
             "dstport": "any",

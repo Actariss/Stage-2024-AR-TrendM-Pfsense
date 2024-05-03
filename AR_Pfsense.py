@@ -10,7 +10,7 @@ urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 
 def log(message):
-    with open('/home/user/ar-log.log', 'w') as f:
+    with open('./ar-log.log', 'w') as f:
         f.writelines(message)
 
 

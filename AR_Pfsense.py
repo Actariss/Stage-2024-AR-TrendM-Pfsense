@@ -164,7 +164,7 @@ def main():
         #        pprint_json(get_all_rules_response)
 
         custom_rule = PfSenseRule.create_custom_rule(new_dict)
-        custom_rule2 = PfSenseRule.create_custom_rule(new_dict_2)
+        custom_rule_2 = PfSenseRule.create_custom_rule(new_dict_2)
 
         # print(f"Posting custom rule..", end=" ")
         log(f"Posting custom rule..")

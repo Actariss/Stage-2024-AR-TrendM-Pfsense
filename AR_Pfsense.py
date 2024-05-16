@@ -141,6 +141,19 @@ def main():
             "top": True,
             "apply": True
         }
+        new_dict_2 = {
+            "type": "block",
+            "interface": "lan",
+            "ipprotocol": "inet",
+            "protocol": "any",
+            "src": "any",
+            "srcport": "any",
+            "dst": sys.argv[1],
+            "dstport": "any",
+            "descr": "Rule created by Trend Micro",
+            "top": True,
+            "apply": True
+        }
         api = PfSenseApi("192.168.123.1")
         debug = True
 
@@ -151,17 +164,22 @@ def main():
         #        pprint_json(get_all_rules_response)
 
         custom_rule = PfSenseRule.create_custom_rule(new_dict)
+        custom_rule2 = PfSenseRule.create_custom_rule(new_dict_2)
 
         # print(f"Posting custom rule..", end=" ")
         log(f"Posting custom rule..")
         post_custom_rule_response = api.post_firewall_rule(custom_rule)
         custom_rule_tracker = post_custom_rule_response['data']['tracker']
+        post_custom_rule_response_2 = api.post_firewall_rule(custom_rule_2)
+        custom_rule_tracker_2 = post_custom_rule_response_2['data']['tracker']
         # print(post_custom_rule_response['message'])
         log(post_custom_rule_response['message'])
+        log(post_custom_rule_response_2['message'])
 
         if debug:
             print(f"Tracker: {custom_rule_tracker}")
             log(pprint_json(post_custom_rule_response))
+            log(pprint_json(post_custom_rule_response_2))
 
         # print(f"Deleting custom_rule..", end=" ")
         # delete_custom_rule_response = api.delete_firewall_rule(custom_rule_tracker)

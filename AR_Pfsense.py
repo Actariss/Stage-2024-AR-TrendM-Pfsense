@@ -130,7 +130,7 @@ def main():
     try:
         new_dict = {
             "type": "block",
-            "interface": "opt1",
+            "interface": "wan",
             "ipprotocol": "inet",
             "protocol": "any",
             "src": sys.argv[1],
